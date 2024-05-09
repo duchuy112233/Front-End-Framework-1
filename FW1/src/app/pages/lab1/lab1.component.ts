@@ -1,28 +1,23 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
-import { Product } from '../Types/Products';
-import { IProduct } from '../Types/Bai4';
-import { HeaderComponent } from './components/header/header.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-import { Lab1Component } from './pages/lab1/lab1.component';
+import { Product } from '../../../Types/Products';
+import { IProduct } from '../../../Types/Bai4';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-lab1',
   standalone: true,
   imports: [
     CommonModule,
     RouterOutlet,
     NgFor,
-    HeaderComponent,
-    ProductListComponent,
-    Lab1Component
+  
   ],
 
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './lab1.component.html',
+  styleUrls: ['./lab1.component.scss'],
 })
-export class AppComponent {
+export class Lab1Component {
   title = 'WEB208 FPT POLY';
   student = {
     name: 'Nguyễn Đức Huy',
