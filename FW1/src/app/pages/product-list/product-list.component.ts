@@ -20,6 +20,7 @@ export class ProductListComponent {
       description: 'Leaf rake with 48-inch wooden handle.',
       price: 19.95,
       starRating: 2.2,
+      imageVisible: true,
       imageUrl:
         'http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png',
     },
@@ -32,6 +33,7 @@ export class ProductListComponent {
       description: '15 gallon capacity rolling garden cart',
       price: 32.99,
       starRating: 4.2,
+      imageVisible: true,
       imageUrl:
         'http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png',
     },
@@ -75,11 +77,26 @@ export class ProductListComponent {
   ngOnInit(): void {
     this.listProduct = this.productss;
   }
-  filterValue: string = ''; //ánh xạ tới textbox search
+  filterValue: string = ''; 
   filter() {
     //chọn sản phẩm có tên chưa tên giá trị nhập vào
     this.productss = this.listProduct.filter((p) =>
-      p.productName.includes(this.filterValue)
+      p.productName.toLocaleLowerCase().includes(this.filterValue.toLocaleLowerCase())
     );
   }
+//
+setterValue: string = ''; // Giá trị của textbox search
+toggleImageVisibility(product: IProduct) {
+  product.imageVisible = !product.imageVisible;
+}
+set setter(value: string) {
+  this.setterValue = value;
+  // Ẩn/hiện hình ảnh dựa trên giá trị của setterValue và trạng thái imageVisible
+  this.productss.forEach(p => {
+    p.imageUrl = p.imageUrl.includes(this.setterValue) && p.imageVisible ? p.imageUrl : '';
+  });
+}
+
+
+
 }
