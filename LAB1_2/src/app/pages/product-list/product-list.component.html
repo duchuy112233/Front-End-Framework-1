@@ -6,8 +6,7 @@
     <input
       type="text"
       class="w-1/4 px-2 py-1 border border-gray-300 rounded-md"
-      [(ngModel)]="filterValue"
-      (input)="filter()"
+      [(ngModel)]='filterValue' (input)='filter()'
     />
     <div class="w-5/6"></div>
   </div>
@@ -44,17 +43,9 @@
     <tbody class="divide-y divide-gray-200" *ngFor="let product of productss">
       <tr>
         <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-          <img
-            class="w-[90px]"
-            [src]="product.imageUrl"
-            alt=""
-            [hidden]="!product.imageVisible"
-          />
-          <input
-            type="checkbox"
-            [(ngModel)]="product.imageVisible"
-            (click)="toggleImageVisibility(product)"
-          />
+          <img class="w-[90px]" [src]="product.imageUrl" alt="" [hidden]="!product.imageVisible" />
+          <input type="checkbox" [(ngModel)]="product.imageVisible" (click)="toggleImageVisibility(product)" />
+         
         </td>
         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
           {{ product.productName }}

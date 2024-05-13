@@ -1,25 +1,31 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
+import { HomeComponent } from './pages/admin/home/home.component';
+import { HeaderComponent } from './componets/header/header.component';
+import { ProductListComponent } from './pages/admin/products/list/list.component';
 //
-import { HeaderComponent } from './components/header/header.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-import { Lab1Component } from './pages/lab1/lab1.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+
     CommonModule,
     RouterOutlet,
     NgFor,
+    RouterLink,
+    RouterLinkActive,
     //
     HeaderComponent,
-    ProductListComponent,
-    Lab1Component,
+    HomeComponent,
+    ProductListComponent
   ],
 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {}
+export class AppComponent {
+ 
+  
+}
