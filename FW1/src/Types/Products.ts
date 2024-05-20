@@ -4,7 +4,7 @@ export type Product = {
     description: string
     price: number
     discountPercentage?: number
-    rating?: number
+    rating: number
     stock?: number
     brand?: string
     category?: string

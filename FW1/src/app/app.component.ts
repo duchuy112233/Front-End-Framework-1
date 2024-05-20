@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
-import { HomeComponent } from './pages/admin/home/home.component';
 import { HeaderComponent } from './componets/header/header.component';
 import { ProductListComponent } from './pages/admin/products/list/list.component';
 //
@@ -18,7 +17,7 @@ import { ProductListComponent } from './pages/admin/products/list/list.component
     RouterLinkActive,
     //
     HeaderComponent,
-    HomeComponent,
+   
     ProductListComponent
   ],
 
