@@ -25,13 +25,13 @@
   <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
     <thead class="ltr:text-left rtl:text-right">
       <tr>
-        <th class="px-4 py-2 font-medium text-gray-900">IMAGE</th>
-        <th class="px-4 py-2 font-medium text-gray-900">PRODUCT</th>
-        <th class="px-4 py-2 font-medium text-gray-900">CODE</th>
-        <th class="px-4 py-2 font-medium text-gray-900">AVAILABLE</th>
-        <th class="px-4 py-2 font-medium text-gray-900">PRICE</th>
-        <th class="px-4 py-2 font-medium text-gray-900">5 STAR RATING</th>
-        <th class="px-4 py-2 font-medium text-gray-900">ACTION</th>
+        <th class="px-4 py-2 font-medium text-gray-900">Image</th>
+        <th class="px-4 py-2 font-medium text-gray-900">Name</th>
+        <th class="px-4 py-2 font-medium text-gray-900">Discount</th>
+        <th class="px-4 py-2 font-medium text-gray-900">stock</th>
+        <th class="px-4 py-4 font-medium text-gray-900">Price</th>
+        <th class="px-4 py-2 font-medium text-gray-900">Rating</th>
+        <th class="px-4 py-2 font-medium text-gray-900">Action</th>
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-200">
@@ -50,7 +50,7 @@
           {{ product.discountPercentage }}
         </td>
         <td class="px-4 py-2 text-gray-700">{{ product.stock }}</td>
-        <td class="px-4 py-2 text-gray-700">{{ product.price }}</td>
+        <td class="px-4 py-2 text-gray-700 ">{{ product.price }} $</td>
         <td class="px-4 py-2 text-gray-700">
           <div class="px-2 flex items-center">
             <div
@@ -69,6 +69,11 @@
         </td>
 
         <td class="px-4 py-2 text-gray-700">
+          <a
+          [routerLink]="['/details', product.id]"
+          class="mr-2 inline-block px-3 py-1 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+          >View</a
+        >
           <a
             href="#"
             class="mr-2 inline-block px-3 py-1 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"

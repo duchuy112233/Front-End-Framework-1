@@ -13,13 +13,15 @@ import { RouterModule } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
   products: Product[] | undefined;
+
   constructor(private productService: ProductService) {}
   ngOnInit() {
-    this.productService.getProducts().subscribe((products) => {
+    this.productService.getAllProducts().subscribe((products) => {
       this.products = products;
+   
     });
   }
-
+  
   addToCart(product: Product) {
     console.log(`Them vao gio hang thanh cong: ${product.title}`);
   }

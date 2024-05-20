@@ -19,5 +19,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'WD18332';
+  title = 'PH33852';
 }
