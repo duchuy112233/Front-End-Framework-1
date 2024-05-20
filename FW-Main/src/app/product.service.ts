@@ -16,6 +16,7 @@ export class ProductService {
   // Lấy tất cả sản phẩm
   getAllProducts() {
     return this.http.get<Product[]>(this.apiURL).pipe(
+      //
       catchError(error => {
         this.router.navigate(['/not-found']);
         return throwError(error);
@@ -30,6 +31,7 @@ export class ProductService {
       return throwError('ID is undefined');
     }
     return this.http.get<Product>(`${this.apiURL}/${id}`).pipe(
+      //
       catchError(error => {
         this.router.navigate(['/not-found']);
         return throwError(error);
@@ -40,6 +42,7 @@ export class ProductService {
   // Xóa sản phẩm theo ID
   deleteProduct(id: number) {
     return this.http.delete(`${this.apiURL}/${id}`).pipe(
+      //
       catchError(error => {
         this.router.navigate(['/not-found']);
         return throwError(error);
