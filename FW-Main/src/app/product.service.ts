@@ -49,4 +49,13 @@ export class ProductService {
       })
     );
   }
+  // thêm sản phẩm
+  createProduct(product: Product) {
+    return this.http.post(`${this.apiURL}`, product);
+  }
+    // Cập nhật sản phẩm
+  
+    updateProductById(product: Product, id: string) {
+      return this.http.put<Product>(`${this.apiURL}/${id}`, product);
+    }
 }
