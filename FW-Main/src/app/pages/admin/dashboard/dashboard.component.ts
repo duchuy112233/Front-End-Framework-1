@@ -47,7 +47,10 @@ export class DashboardComponent {
 
   get paginatedProducts(): Product[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+    return this.filteredProducts.slice(
+      startIndex,
+      startIndex + this.itemsPerPage
+    );
   }
 
   totalPages(): number {
@@ -73,7 +76,10 @@ export class DashboardComponent {
   }
 
   handleDeleteProduct(id: any) {
-    if (window.confirm('Bạn có chắc chắn muốn xoá không ?')) {
+    // if (window.confirm('Bạn có chắc chắn muốn xoá không ?')) {
+
+    this.deleteMessage = 'Xoá thành công !';
+    setTimeout(() => {
       this.productService.deleteProduct(id).subscribe({
         next: () => {
           this.products = this.products.filter((product) => product.id !== id);
@@ -81,15 +87,15 @@ export class DashboardComponent {
             (product) => product.id !== id
           );
           // Show delete message
-          this.deleteMessage = 'Xoá thành công !';
-          setTimeout(() => {
-            this.deleteMessage = null;
-          }, 2000);
         },
         error: (error) => {
           console.error(error.message);
         },
       });
-    }
+
+      this.deleteMessage = null;
+    }, 1500);
+
+    // }
   }
 }

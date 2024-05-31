@@ -35,6 +35,7 @@ export class AddProductComponent implements OnInit {
       discountPercentage: ['', [Validators.required, Validators.min(0)]],
       stock: ['', [Validators.required, Validators.min(1)]],
       rating: ['', [Validators.required, Validators.max(5), Validators.min(0)]],
+      category: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
   deleteMessage: string | null = null;
@@ -48,7 +49,7 @@ export class AddProductComponent implements OnInit {
         .createProduct(this.productForm.value)
         .subscribe((data) => {
           console.log('Create product successfully!', data);
-          alert('Xác nhận thêm sản phẩm thành công');
+          // alert('Xác nhận thêm sản phẩm thành công');
 
           // Hiển thị thông báo thêm sản phẩm thành công
           this.deleteMessage = 'Thêm sản phẩm thành công!';

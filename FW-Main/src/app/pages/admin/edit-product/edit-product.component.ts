@@ -39,6 +39,7 @@ export class EditProductComponent implements OnInit {
       discountPercentage: ['', [Validators.required, Validators.min(0)]],
       stock: ['', [Validators.required, Validators.min(1)]],
       rating: ['', [Validators.required, Validators.max(5), Validators.min(0)]],
+      category: ['', [Validators.required, Validators.minLength(0)]],
     });
   }
   //////////////////////////////////////////////
@@ -65,11 +66,12 @@ export class EditProductComponent implements OnInit {
   deleteMessage: string | null = null;
   handleSubmit() {
     if (this.productForm.valid) {
+      
       this.productService
         .updateProductById(this.productForm.value, this.productID)
         .subscribe((data) => {
           console.log('Update product successfully!', data);
-          alert('Xác nhận cập nhật sản phẩm thành công');
+          // alert('Xác nhận cập nhật sản phẩm thành công');
           // Hiển thị thông báo cập nhật sản phẩm thành công
           this.deleteMessage = 'Cập nhật sản phẩm thành công!';
           // Điều hướng về trang /admin sau 2 giây
@@ -79,4 +81,7 @@ export class EditProductComponent implements OnInit {
         });
     }
   }
+
+
+
 }
