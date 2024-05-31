@@ -35,7 +35,7 @@
           <input type="number" placeholder="Nhập giá sản phẩm" id="price" formControlName="price" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" />
         </div>
         <div class="text-red-500 mt-1" *ngIf="!productForm.get('price')?.valid && productForm.get('price')?.touched">
-          Vui lòng nhập giá sản phẩm
+          Giá sản phẩm không được để trống hoặc âm
         </div>
       </div>
       <!-- /Stock// -->
