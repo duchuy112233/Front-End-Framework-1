@@ -1,59 +1,129 @@
 <div class="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8">
-  <div *ngIf="deleteMessage" class="fixed top-4 right-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md shadow-lg z-50">
+  <div
+    *ngIf="deleteMessage"
+    class="fixed top-4 right-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md shadow-lg z-50"
+  >
     {{ deleteMessage }}
   </div>
   <div class="mx-auto max-w-lg text-center">
     <h1 class="text-2xl font-bold sm:text-3xl">Thêm mới sản phẩm</h1>
   </div>
 
-  <form (ngSubmit)="handleSubmit()" [formGroup]="productForm" action="#" class="mx-auto mb-0 mt-8 space-y-10">
+  <form
+    (ngSubmit)="handleSubmit()"
+    [formGroup]="productForm"
+    action="#"
+    class="mx-auto mb-0 mt-8 space-y-10"
+  >
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- /Image// -->
       <div class="md:col-span-2">
-        <label for="thumbnail" class="block text-sm font-medium text-gray-700">Ảnh sản phẩm</label>
+        <label for="thumbnail" class="block text-sm font-medium text-gray-700"
+          >Ảnh sản phẩm</label
+        >
         <div class="mt-1 relative">
-          <input type="text" placeholder="Nhập ảnh sản phẩm" id="thumbnail" formControlName="thumbnail" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" />
+          <input
+            type="text"
+            placeholder="Nhập ảnh sản phẩm"
+            id="thumbnail"
+            formControlName="thumbnail"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          />
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('thumbnail')?.valid && productForm.get('thumbnail')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('thumbnail')?.valid &&
+            productForm.get('thumbnail')?.touched
+          "
+        >
           Bạn chưa thêm ảnh sản phẩm
         </div>
       </div>
       <!-- /Title// -->
       <div>
-        <label for="title" class="block text-sm font-medium text-gray-700">Tên sản phẩm</label>
+        <label for="title" class="block text-sm font-medium text-gray-700"
+          >Tên sản phẩm</label
+        >
         <div class="mt-1 relative">
-          <input type="text" placeholder="Nhập tên sản phẩm" id="title" formControlName="title" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" />
+          <input
+            type="text"
+            placeholder="Nhập tên sản phẩm"
+            id="title"
+            formControlName="title"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          />
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('title')?.valid && productForm.get('title')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('title')?.valid &&
+            productForm.get('title')?.touched
+          "
+        >
           Tên sản phẩm không dưới 3 ký tự
         </div>
       </div>
       <!-- /Price// -->
       <div>
-        <label for="price" class="block text-sm font-medium text-gray-700">Giá</label>
+        <label for="price" class="block text-sm font-medium text-gray-700"
+          >Giá</label
+        >
         <div class="mt-1 relative">
-          <input type="number" placeholder="Nhập giá sản phẩm" id="price" formControlName="price" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" />
+          <input
+            type="number"
+            placeholder="Nhập giá sản phẩm"
+            id="price"
+            formControlName="price"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          />
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('price')?.valid && productForm.get('price')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('price')?.valid &&
+            productForm.get('price')?.touched
+          "
+        >
           Giá sản phẩm không được để trống hoặc âm
         </div>
       </div>
       <!-- /Stock// -->
       <div>
-        <label for="stock" class="block text-sm font-medium text-gray-700">Số lượng</label>
+        <label for="stock" class="block text-sm font-medium text-gray-700"
+          >Số lượng</label
+        >
         <div class="mt-1 relative">
-          <input type="text" placeholder="Nhập số lượng sản phẩm" id="stock" formControlName="stock" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" />
+          <input
+            type="text"
+            placeholder="Nhập số lượng sản phẩm"
+            id="stock"
+            formControlName="stock"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          />
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('stock')?.valid && productForm.get('stock')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('stock')?.valid &&
+            productForm.get('stock')?.touched
+          "
+        >
           Vui lòng nhập số lượng sản phẩm
         </div>
       </div>
 
       <!-- /Category// -->
       <div>
-        <label for="category" class="block text-sm font-medium text-gray-700">Danh mục</label>
+        <label for="category" class="block text-sm font-medium text-gray-700"
+          >Danh mục</label
+        >
         <div class="mt-1 relative">
-          <select id="category" formControlName="category" class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm">
+          <select
+            id="category"
+            formControlName="category"
+            class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+          >
             <option value="" disabled selected>Chọn danh mục</option>
             <option value="Điện thoại">Điện thoại</option>
             <option value="Laptop">Laptop</option>
@@ -61,36 +131,78 @@
             <!-- Add more categories as needed -->
           </select>
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('category')?.valid && productForm.get('category')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('category')?.valid &&
+            productForm.get('category')?.touched
+          "
+        >
           Vui lòng chọn danh mục
         </div>
       </div>
 
       <!-- /Mô tả// -->
       <div class="md:col-span-2">
-        <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+        <label for="description" class="block text-sm font-medium text-gray-700"
+          >Mô tả</label
+        >
         <div class="mt-1 relative">
-          <textarea placeholder="Nhập mô tả sản phẩm" id="description" formControlName="description" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" rows="6"></textarea>
+          <textarea
+            placeholder="Nhập mô tả sản phẩm"
+            id="description"
+            formControlName="description"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            rows="6"
+          ></textarea>
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('description')?.valid && productForm.get('description')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('description')?.valid &&
+            productForm.get('description')?.touched
+          "
+        >
           Vui lòng nhập mô tả không dưới 5 ký tự
         </div>
       </div>
       <!-- /Discount// -->
       <div>
-        <label for="discountPercentage" class="block text-sm font-medium text-gray-700">Mã giảm giá (%)</label>
+        <label
+          for="discountPercentage"
+          class="block text-sm font-medium text-gray-700"
+          >Mã giảm giá (%)</label
+        >
         <div class="mt-1 relative">
-          <input type="text" placeholder="Nhập số giảm giá sản phẩm" id="discountPercentage" formControlName="discountPercentage" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" />
+          <input
+            type="text"
+            placeholder="Nhập số giảm giá sản phẩm"
+            id="discountPercentage"
+            formControlName="discountPercentage"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+          />
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('discountPercentage')?.valid && productForm.get('discountPercentage')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('discountPercentage')?.valid &&
+            productForm.get('discountPercentage')?.touched
+          "
+        >
           Vui lòng nhập phiếu giảm giá
         </div>
       </div>
       <!-- /Rating// -->
       <div>
-        <label for="rating" class="block text-sm font-medium text-gray-700">Đánh giá</label>
+        <label for="rating" class="block text-sm font-medium text-gray-700"
+          >Đánh giá</label
+        >
         <div class="mt-1 relative">
-          <select id="rating" formControlName="rating" class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm">
+          <select
+            id="rating"
+            formControlName="rating"
+            class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+          >
             <option value="" disabled selected>Chọn số sao</option>
             <option value="1">1 sao</option>
             <option value="2">2 sao</option>
@@ -99,19 +211,25 @@
             <option value="5">5 sao</option>
           </select>
         </div>
-        <div class="text-red-500 mt-1" *ngIf="!productForm.get('rating')?.valid && productForm.get('rating')?.touched">
+        <div
+          class="text-red-500 mt-1"
+          *ngIf="
+            !productForm.get('rating')?.valid &&
+            productForm.get('rating')?.touched
+          "
+        >
           Vui lòng nhập đánh giá sản phẩm tối đa 5 sao
         </div>
       </div>
-
-
-
     </div>
     <div class="flex items-center justify-between mt-4">
       <p class="text-sm text-gray-500">
         <a class="underline" href="/admin">Dashboard</a>
       </p>
-      <button type="submit" class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
+      <button
+        type="submit"
+        class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+      >
         Xác nhận
       </button>
     </div>

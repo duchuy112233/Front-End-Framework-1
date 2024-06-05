@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../Types/Product';
 import {
-  Form,
+  
   FormBuilder,
   FormGroup,
   FormsModule,
