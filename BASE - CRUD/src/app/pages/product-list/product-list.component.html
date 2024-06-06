@@ -1,0 +1,50 @@
+<!-- Copy Code Lab 2: Table Product List -->
+<!-- Notification -->
+<div *ngIf="deleteMessage" class="alert alert-success fixed-top m-3">
+  <strong>{{ deleteMessage }}</strong>
+</div>
+
+<!-- Product List Card -->
+<div class="card mt-5">
+  <div class="card-header"><b>PRODUCTS LIST</b></div>
+
+  <div class="card-body">
+    <a [routerLink]="['/product/add']" class="btn btn-success mb-3"
+      >Thêm mới sản phẩm</a
+    >
+
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products; track product.id) {
+        <tr>
+          <td>{{ product.title }}</td>
+          <td>{{ product.price }}</td>
+
+          <td><img [src]="product.image" width="100px" /></td>
+          <td>{{ product.category }}</td>
+          <td>
+            <a [routerLink]="['/product/edit', product.id]" class="btn btn-info"
+              >Edit</a
+            >
+            <button
+              class="btn btn-danger m-2"
+              (click)="handleDeleteProduct(product.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

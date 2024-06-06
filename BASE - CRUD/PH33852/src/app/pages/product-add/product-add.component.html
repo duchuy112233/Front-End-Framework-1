@@ -1,0 +1,100 @@
+<!-- Success message -->
+<div *ngIf="addMessage" class="alert alert-success fixed-bottom m-3" >
+  <strong>{{ addMessage }}</strong>
+</div>
+
+
+<form (ngSubmit)="handleSubmit()" [formGroup]="addForm">
+  <div class="text-center mt-4 mb-4">
+    <h1 class="display-4">Thêm mới sản phẩm</h1>
+  </div>
+  
+  <!-- Title input -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Enter Title"
+      formControlName="title"
+    />
+    <!-- Error message -->
+    <small
+      *ngIf="addForm.get('title')?.invalid && addForm.get('title')?.touched"
+      class="text-danger"
+    >
+      Tên sản phẩm là trường bắt buộc và phải có ít nhất 3 ký tự
+    </small>
+  </div>
+
+  <!-- Price input -->
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      placeholder="Price"
+      formControlName="price"
+    />
+    <!-- Error message -->
+    <small
+      *ngIf="addForm.get('price')?.invalid && addForm.get('price')?.touched"
+      class="text-danger"
+    >
+      Giá sản phẩm phải lớn hơn hoặc bằng 0
+    </small>
+  </div>
+
+  <!-- Category -->
+<div class="form-group">
+  <label for="category" class="block text-sm font-medium text-gray-700">Danh mục</label>
+  <div class="mt-1">
+    <select id="category" formControlName="category" class="form-control">
+      <option value="" disabled selected>Chọn danh mục</option>
+      <option value="Điện thoại">Điện thoại</option>
+      <option value="Laptop">Laptop</option>
+      <option value="PC">PC</option>
+      <!-- Add more categories as needed -->
+    </select>
+  </div>
+  <small class="text-danger mt-1" *ngIf="addForm.get('category')?.invalid && addForm.get('category')?.touched">
+    Vui lòng chọn danh mục
+  </small>
+</div>
+
+
+  <!-- Image input -->
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input
+      type="text"
+      class="form-control"
+      id="image"
+      placeholder="Image"
+      formControlName="image"
+    />
+    <!-- Error message -->
+    <small
+      *ngIf="addForm.get('image')?.invalid && addForm.get('image')?.touched"
+      class="text-danger"
+    >
+      Hình ảnh sản phẩm là trường bắt buộc
+    </small>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="isShowCheckbox"
+      formControlName="isShow"
+    />
+    <label class="form-check-label" for="isShowCheckbox">isShow</label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
