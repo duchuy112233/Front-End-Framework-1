@@ -1,14 +1,13 @@
 <!-- Success message -->
-<div *ngIf="addMessage" class="alert alert-success fixed-bottom m-3" >
+<div *ngIf="addMessage" class="delete-message">
   <strong>{{ addMessage }}</strong>
 </div>
-
 
 <form (ngSubmit)="handleSubmit()" [formGroup]="addForm">
   <div class="text-center mt-4 mb-4">
     <h1 class="display-4">Thêm mới sản phẩm</h1>
   </div>
-  
+
   <!-- Title input -->
   <div class="form-group">
     <label for="title">Title</label>
@@ -21,10 +20,16 @@
     />
     <!-- Error message -->
     <small
-      *ngIf="addForm.get('title')?.invalid && addForm.get('title')?.touched"
+      *ngIf="addForm.get('title')?.errors?.['minlength'] && addForm.get('title')?.touched"
       class="text-danger"
     >
-      Tên sản phẩm là trường bắt buộc và phải có ít nhất 3 ký tự
+      Tên sản phẩm phải có ít nhất 3 ký tự
+    </small>
+    <small
+      *ngIf="addForm.get('title')?.errors?.['required'] && addForm.get('title')?.touched"
+      class="text-danger"
+    >
+      Tên sản phẩm là trường bắt buộc
     </small>
   </div>
 
@@ -40,30 +45,40 @@
     />
     <!-- Error message -->
     <small
-      *ngIf="addForm.get('price')?.invalid && addForm.get('price')?.touched"
+      *ngIf="addForm.get('price')?.errors?.['min'] && addForm.get('price')?.touched"
       class="text-danger"
     >
-      Giá sản phẩm phải lớn hơn hoặc bằng 0
+      Giá sản phẩm không được âm
+    </small>
+    <small
+      *ngIf="addForm.get('price')?.errors?.['required'] && addForm.get('price')?.touched"
+      class="text-danger"
+    >
+      Giá phẩm là trường bắt buộc
     </small>
   </div>
 
   <!-- Category -->
-<div class="form-group">
-  <label for="category" class="block text-sm font-medium text-gray-700">Danh mục</label>
-  <div class="mt-1">
-    <select id="category" formControlName="category" class="form-control">
-      <option value="" disabled selected>Chọn danh mục</option>
-      <option value="Điện thoại">Điện thoại</option>
-      <option value="Laptop">Laptop</option>
-      <option value="PC">PC</option>
-      <!-- Add more categories as needed -->
-    </select>
+  <div class="form-group">
+    <label for="category" class="block text-sm font-medium text-gray-700"
+      >Danh mục</label
+    >
+    <div class="mt-1">
+      <select id="category" formControlName="category" class="form-control">
+        <option value="" disabled selected>Chọn danh mục</option>
+        <option value="Điện thoại">Điện thoại</option>
+        <option value="Laptop">Laptop</option>
+        <option value="PC">PC</option>
+        <!-- Add more categories as needed -->
+      </select>
+    </div>
+    <small
+      *ngIf="addForm.get('category')?.errors?.['required'] && addForm.get('category')?.touched"
+      class="text-danger"
+    >
+      Danh mục sản phẩm phông được để trống
+    </small>
   </div>
-  <small class="text-danger mt-1" *ngIf="addForm.get('category')?.invalid && addForm.get('category')?.touched">
-    Vui lòng chọn danh mục
-  </small>
-</div>
-
 
   <!-- Image input -->
   <div class="form-group">
@@ -76,11 +91,12 @@
       formControlName="image"
     />
     <!-- Error message -->
+
     <small
-      *ngIf="addForm.get('image')?.invalid && addForm.get('image')?.touched"
+      *ngIf="addForm.get('image')?.errors?.['required'] && addForm.get('image')?.touched"
       class="text-danger"
     >
-      Hình ảnh sản phẩm là trường bắt buộc
+      Ảnh sản phẩm phông được để trống
     </small>
   </div>
 

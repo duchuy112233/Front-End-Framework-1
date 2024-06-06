@@ -1,5 +1,5 @@
 <!-- Success message -->
-<div *ngIf="editMessage" class="alert alert-success fixed-bottom m-3">
+<div *ngIf="editMessage" class="delete-message">
   <strong>{{ editMessage }}</strong>
 </div>
 
@@ -20,10 +20,16 @@
     />
     <!-- Error message -->
     <small
-      *ngIf="addForm.get('title')?.invalid && addForm.get('title')?.touched"
+      *ngIf="addForm.get('title')?.errors?.['minlength'] && addForm.get('title')?.touched"
       class="text-danger"
     >
-      Tên sản phẩm là trường bắt buộc và phải có ít nhất 3 ký tự
+      Tên sản phẩm phải có ít nhất 3 ký tự
+    </small>
+    <small
+      *ngIf="addForm.get('title')?.errors?.['required'] && addForm.get('title')?.touched"
+      class="text-danger"
+    >
+      Tên sản phẩm là trường bắt buộc
     </small>
   </div>
 
@@ -39,10 +45,16 @@
     />
     <!-- Error message -->
     <small
-      *ngIf="addForm.get('price')?.invalid && addForm.get('price')?.touched"
+      *ngIf="addForm.get('price')?.errors?.['min'] && addForm.get('price')?.touched"
       class="text-danger"
     >
-      Giá sản phẩm phải lớn hơn hoặc bằng 0
+      Giá sản phẩm không được âm
+    </small>
+    <small
+      *ngIf="addForm.get('price')?.errors?.['required'] && addForm.get('price')?.touched"
+      class="text-danger"
+    >
+      Giá phẩm là trường bắt buộc
     </small>
   </div>
   <!-- Category -->
@@ -60,12 +72,10 @@
       </select>
     </div>
     <small
-      class="text-danger mt-1"
-      *ngIf="
-        addForm.get('category')?.invalid && addForm.get('category')?.touched
-      "
+      *ngIf="addForm.get('category')?.errors?.['required'] && addForm.get('category')?.touched"
+      class="text-danger"
     >
-      Vui lòng chọn danh mục
+      Danh mục sản phẩm phông được để trống
     </small>
   </div>
 
@@ -81,10 +91,10 @@
     />
     <!-- Error message -->
     <small
-      *ngIf="addForm.get('image')?.invalid && addForm.get('image')?.touched"
+      *ngIf="addForm.get('image')?.errors?.['required'] && addForm.get('image')?.touched"
       class="text-danger"
     >
-      Hình ảnh sản phẩm là trường bắt buộc
+      Ảnh sản phẩm phông được để trống
     </small>
   </div>
 

@@ -5,25 +5,41 @@
       "title": "ok thành công",
       "price": 4399,
       "isShow": true,
-      "category": "Điện thoại",
+      "category": "Laptop",
       "id": 9
     },
     {
-      "image": "https://th.bing.com/th/id/OIP.2TumufLJYnKvtmU6UMWe6wHaE8?rs=1&pid=ImgDetMain",
-      "title": "hhhhhh544",
-      "price": 6666699,
-      "isShow": false,
-      "category": "PC",
-      "id": 11
+      "image": "https://picsum.photos/200/200",
+      "title": "sdgsgd",
+      "price": 6666,
+      "isShow": true,
+      "category": "Điện thoại",
+      "id": 14
     },
     {
       "image": "https://picsum.photos/200/200",
-      "title": "fgdgdfg",
-      "price": 676767,
+      "title": "sdgsgd",
+      "price": 6666,
       "isShow": true,
-      "category": "Laptop",
-      "id": 12
+      "category": "Điện thoại",
+      "id": 15
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$gSxLkJ5o5CY.dUz3AYoo0.5XstpLMGdEHZ45AbSjZCqNc9q/eUc/6",
+      "id": 5
+    },
+    {
+      "email": "quochungnhi123@gmail.com",
+      "password": "$2a$10$SU3rduheOFEBqp3WbpQHduvn/t3iuv4cJm/WyzirWKNdL3Reve93C",
+      "id": 6
+    },
+    {
+      "email": "huyndph33852@fe.edu.vn",
+      "password": "$2a$10$Nc1ZtD68OS.mWTov9QaChuAqsFx3f7ez/x/KM58cHjbj8s3WW1kL2",
+      "id": 7
+    }
+  ]
 }

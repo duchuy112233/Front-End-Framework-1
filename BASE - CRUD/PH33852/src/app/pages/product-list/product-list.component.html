@@ -1,6 +1,6 @@
 <!-- Copy Code Lab 2: Table Product List -->
 <!-- Notification -->
-<div *ngIf="deleteMessage" class="alert alert-success fixed-top m-3">
+<div *ngIf="deleteMessage" class="delete-message">
   <strong>{{ deleteMessage }}</strong>
 </div>
 
@@ -12,10 +12,10 @@
     <a [routerLink]="['/product/add']" class="btn btn-success mb-3"
       >Thêm mới sản phẩm</a
     >
-
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
+          <th>Id</th>
           <th>Title</th>
           <th>Price</th>
           <th>Image</th>
@@ -26,13 +26,16 @@
       <tbody>
         @for (product of products; track product.id) {
         <tr>
+          <td>{{ product.id }}</td>
           <td>{{ product.title }}</td>
           <td>{{ product.price }}</td>
 
           <td><img [src]="product.image" width="100px" /></td>
           <td>{{ product.category }}</td>
           <td>
-            <a [routerLink]="['/product/edit', product.id]" class="btn btn-info"
+            <a
+              [routerLink]="['/product/edit', product.id]"
+              class="btn btn-info"
               >Edit</a
             >
             <button
