@@ -1,22 +1,15 @@
-import { Component, inject } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { AuthService } from '../../auth.service';
-
-import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+  styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   authService = inject(AuthService);
@@ -28,14 +21,14 @@ export class RegisterComponent {
       Validators.required,
     ]),
   });
-  deleteMessage: string | null = null;
+  Message: string | null = null;
   handleSubmit() {
     console.log(this.registerForm.value);
     this.authService.register(this.registerForm.value).subscribe({
       next: () => {
-        this.deleteMessage = 'Đăng ký thành công!';
+        this.Message = 'Đăng ký thành công!';
         setTimeout(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
         }, 2000);
       },
       error: (error) => {

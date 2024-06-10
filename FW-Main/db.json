@@ -26,33 +26,8 @@
   "users": [
     {
       "email": "quochungnhi@gmail.com",
-      "password": "$2a$10$vmfv13w.DOlN6ZH84vc.b./4uGSmyj7B/alP0o1AGN1UIP3nXWFNu",
+      "password": "$2a$10$dO2KvcJyzjzbS2YnZW8i2e7Wq4QWGm75UuZZ5LtYD9xGmliBKddOq",
       "id": 1
-    },
-    {
-      "email": "quochungnhwi@gmail.com",
-      "password": "$2a$10$sBOJHeLbl0.e0b.kzXobjOvlj/Tmz0wPARGAlLWKaueJDDCeLyiza",
-      "id": 2
-    },
-    {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$O7svRetKe7xYXqy8i/Jw7OAoGaD9u0z33HpPSSkfZp5Nzp1.XX.7u",
-      "id": 3
-    },
-    {
-      "email": "huyndph3883852@fe.edu.vn",
-      "password": "$2a$10$sabUX5sbizTUX0fr/fthNeF3KO3rniP3sEVUYbEsoIGyj30FyWWw6",
-      "id": 4
-    },
-    {
-      "email": "admin999@gmail.com",
-      "password": "$2a$10$mhWhWOxMOssNiNbyiEmU4.lRwAi/FRBBiQjf0fngnprO520eih8hu",
-      "id": 5
-    },
-    {
-      "email": "huhhyndph33852@fe.edu.vn",
-      "password": "$2a$10$prhWbdlB7bqR3gFKr50g..q52gAu3Rt8shO/vTu/hoI.YlRvgDh1m",
-      "id": 6
     }
   ]
 }
