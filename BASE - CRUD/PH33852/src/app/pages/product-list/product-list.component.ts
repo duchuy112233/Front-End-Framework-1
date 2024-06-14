@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent {
     products: Product[] = [];
-    filteredProducts: Product[] = [];
+  
     productService = inject(ProductService);
     deleteMessage: string | null = null;
     //
@@ -32,21 +32,22 @@ export class ProductListComponent {
     //
 
   handleDeleteProduct(id: any) {
-    this.deleteMessage = 'Xoá thành công !';
-    setTimeout(() => {
-      this.productService.deleteProduct(id).subscribe({ 
+  
+
+    if (window.confirm('Xoá sản phẩm thành công')) {
+   this.productService.deleteProduct(id).subscribe({ 
         next: () => {
           this.products = this.products.filter((product) => product.id !== id);
-          this.filteredProducts = this.filteredProducts.filter(
-            (product) => product.id !== id
-          );
         },
         error: (error) => {
           console.error(error.message);
         },
       });
+      
+    }
 
-      this.deleteMessage = null;
-    }, 1500);
+   
+
+  
   }
 }

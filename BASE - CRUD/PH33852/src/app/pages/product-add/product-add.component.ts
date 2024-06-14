@@ -37,12 +37,12 @@ export class ProductAddComponent implements OnInit {
   handleSubmit() {
     if (this.addForm.valid) {
       console.log(this.addForm.value);
-      this.productService.addProduct(this.addForm.value).subscribe(() => {
-        this.addMessage = 'Thêm sản phẩm thành công!';
-        setTimeout(() => {
-          this.router.navigate(['/']);
-        }, 2000);
+      if (window.confirm('Thêm mới sản phẩm thành công')) {
+            this.productService.addProduct(this.addForm.value).subscribe(() => {
+              this.router.navigate(['/'])
       });
+      }
+  
     }
   }
 }

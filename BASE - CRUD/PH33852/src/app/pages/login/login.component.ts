@@ -27,24 +27,25 @@ export class LoginComponent {
       Validators.required,
     ]),
   });
-  Message: string | null = null;
+ 
   handleSubmit() {
     console.log(this.registerForm.value);
-    this.authService.login(this.registerForm.value).subscribe({
-      next: (data) => {
-        localStorage.setItem(
-          'token',
-          (data as { accessToken: string }).accessToken
-        );
-        this.Message = 'Đăng nhập thành công!';
-        setTimeout(() => {
+
+    if (window.confirm('Đăng nhập phẩm thành công - Về trang chủ')) {
+      this.authService.login(this.registerForm.value).subscribe({
+        next: (data) => {
+          localStorage.setItem(
+            'token',
+            (data as { accessToken: string }).accessToken
+          );
+
           this.router.navigate(['/']);
-        }, 2000);
-      },
-      error: (error) => {
-        // show error
-        console.error(error.message);
-      },
-    });
+        },
+        error: (error) => {
+          // show error
+          console.error(error.message);
+        },
+      });
+    }
   }
 }

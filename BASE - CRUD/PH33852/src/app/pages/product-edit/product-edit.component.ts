@@ -67,14 +67,14 @@ export class ProductEditComponent implements OnInit {
   handleSubmit() {
     if (this.addForm.valid) {
       console.log(this.addForm.value);
-      this.productService
+      if (window.confirm('Cập nhật sản phẩm thành công')) { 
+         this.productService
         .editProduct(this.addForm.value, this.productID)
         .subscribe(() => {
-          this.editMessage = 'Cập nhật sản phẩm thành công!';
-          setTimeout(() => {
-            this.router.navigate(['/']);
-          }, 2000);
+          this.router.navigate(['/'])
         });
+      }
+    
     }
   }
 }

@@ -2,27 +2,11 @@
   "products": [
     {
       "image": "https://picsum.photos/200/200",
-      "title": "sdgsgd",
-      "price": 6666,
-      "isShow": false,
-      "category": "Điện thoại",
-      "id": 14
-    },
-    {
-      "image": "https://picsum.photos/200/200",
-      "title": "poloo",
-      "price": 700,
-      "isShow": false,
-      "category": "PC",
-      "id": 17
-    },
-    {
-      "image": "https://picsum.photos/200/200",
-      "title": "polllo",
-      "price": 800897,
+      "title": "dsggsggfgd",
+      "price": 4,
       "isShow": true,
-      "category": "Điện thoại",
-      "id": 18
+      "category": "Laptop",
+      "id": 5
     }
   ],
   "users": [
@@ -35,6 +19,11 @@
       "email": "quochungnhi@gmail.com",
       "password": "$2a$10$/UQP/84LAnn8OoLQE5v59./kIbhF3zqS7kuR1P3EPDCfxZngVJihe",
       "id": 6
+    },
+    {
+      "email": "admyn@gmail.com",
+      "password": "$2a$10$gTRCtk1VLKmXLS6ZAIBeFO2kVZ94WPRvX08s.Zocr5Dr.Jzbtt2CK",
+      "id": 7
     }
   ]
 }
