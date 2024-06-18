@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "ggggg",
+      "image": "https://picsum.photos/200/200",
+      "quantity": 454534,
+      "active": true,
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "quochungnhi@gmail.com",
+      "password": "$2a$10$F5bDzkzPDn6e2OauHkr4G.8If5QMsIGRYrI6XKZNKptwTg5PZfPum",
+      "id": 1
+    },
+    {
+      "email": "huyndph33852@fpt.edu.vn",
+      "password": "$2a$10$sxy5a.dupKaVyWFFpvl0VOUkEGwMvC8h.StZ7fnzoBrBZ0jv/4LqS",
+      "id": 2
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$caLCC33wFlWb0mdLqfz6B.Gn5Bzs3Ppw4SqrH8g4RrcpCf7wxpO3e",
+      "id": 3
+    }
+  ]
+}

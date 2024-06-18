@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "title": "456",
+      "show": false,
+      "category": "Laptop",
+      "id": 5
+    },
+    {
+      "title": "3976",
+      "show": true,
+      "category": "Điện thoại",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "email": "quochungnhi@gmail.com",
+      "password": "$2a$10$72Ujk3PP156amEtWjm4z4.Meu8NABF64n24z1LxER8lJNDO71Wl/e",
+      "id": 1
+    }
+  ]
+}

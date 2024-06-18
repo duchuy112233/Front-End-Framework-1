@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="p-4">
+    <h1 class="block font-extrabold text-rose-700 text-[50px]">{{ title }}</h1>
+    <img class="w-[90px]" src="https://caodang.fpt.edu.vn/wp-content/uploads/x18198154_10208600482868814_3469513_n.png.pagespeed.ic_.4_CcyctRxZ.png" alt="" />
+    <span class="text-3xl font-extrabold sm:text-2xl">
+      Họ tên: <span>{{ student.name }}</span> </span
+    ><br />
+    <span class="text-3xl font-extrabold sm:text-2xl">
+      Năm sinh: <span>{{ student.birthday }}</span> </span
+    ><br />
+    <span class="text-3xl font-extrabold sm:text-2xl">
+      Mã sinh viên: <span>{{ student.msv }}</span>
+    </span>
+
+    <div class="text-3xl font-extrabold sm:text-2xl mt-10">Product Info</div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+        <thead class="ltr:text-left rtl:text-right">
+          <tr>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              Name
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              price
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              image
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              desc
+            </th>
+          </tr>
+        </thead>
+
+        <tbody
+          class="divide-y divide-gray-200"
+          *ngFor="let product of products"
+        >
+          <tr>
+            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              {{ product.title }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ product.price }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              <img class="w-[200px]" [src]="product.thumbnail" alt="" />
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ product.description }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-3xl font-extrabold sm:text-2xl mt-10">Product LIST</div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+        <thead class="ltr:text-left rtl:text-right">
+          <tr>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              IMAGE
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              PRODUCT
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              CODE
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              AVILAIBLE
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+             PRICE
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              5 STAR RATING
+            </th>
+          </tr>
+        </thead>
+
+        <tbody
+          class="divide-y divide-gray-200"
+          *ngFor="let product of productss"
+        >
+          <tr>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              <img class="w-[90px]" [src]="product.imageUrl" alt="" />
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              {{ product.productName }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ product.productCode }}
+            </td>
+
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ product.releaseDate }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ product.price }}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ product.starRating }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

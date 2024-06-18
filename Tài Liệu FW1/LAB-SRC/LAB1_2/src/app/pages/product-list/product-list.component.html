@@ -1,0 +1,81 @@
+<div class="text-3xl font-extrabold sm:text-2xl mt-10">Product LIST</div>
+
+<div class="container mx-auto">
+  <div class="flex flex-row items-center mb-2">
+    <label class="w-1/6">Filter:</label>
+    <input
+      type="text"
+      class="w-1/4 px-2 py-1 border border-gray-300 rounded-md"
+      [(ngModel)]='filterValue' (input)='filter()'
+    />
+    <div class="w-5/6"></div>
+  </div>
+  <div class="flex flex-row mb-4">
+    <h2 class="w-full"><b>Filter by:</b></h2>
+  </div>
+</div>
+
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          IMAGE
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          PRODUCT
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          CODE
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          AVILAIBLE
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          PRICE
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          5 STAR RATING
+        </th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200" *ngFor="let product of productss">
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          <img class="w-[90px]" [src]="product.imageUrl" alt="" [hidden]="!product.imageVisible" />
+          <input type="checkbox" [(ngModel)]="product.imageVisible" (click)="toggleImageVisibility(product)" />
+         
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{ product.productName }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ product.productCode }}
+        </td>
+
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ product.releaseDate }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ product.price }}
+        </td>
+        <td class="px-2">
+          <div
+            class="crop"
+            [style.width.px]="(product.starRating * 90) / 5"
+            title="rating"
+          >
+            <div style="width: 90px">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,30 @@
+<div
+  class="d-flex min-vh-100 flex-column justify-content-center px-3 py-4 px-lg-4"
+>
+  <div class="mx-auto w-100" style="max-width: 300px">
+    <h2 class="mt-4 text-center fw-bold">Đăng ký tài khoản</h2>
+  </div>
+
+  <div class="mt-4 mx-auto w-100" style="max-width: 300px">
+    <form [formGroup]="registerForm" (ngSubmit)="handleSubmit()" class="space-y-3">
+      <div class="mb-3">
+        <label for="email" class="form-label"> Email address </label>
+        <input formControlName="email" name="email" type="email" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label"> Password </label>
+        <input formControlName="password" name="password" type="password" class="form-control" />
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </div>
+    </form>
+
+    <p class="mt-4 text-center">
+      Not a member?
+      <a class="text-decoration-none"> Login </a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="card mt-5">
+  <div class="card-header"><b>PRODUCTS LIST</b></div>
+
+  <div class="card-body">
+    <a [routerLink]="['product/add']" class="btn btn-success mb-3">Thêm mới sản phẩm</a>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>show</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(product of products; track product.id){
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.title }}</td>
+          <td>category</td>
+          <td>showww</td>
+          <td>
+            <a [routerLink]="['product/edit',product.id]"  class="btn btn-info">Edit</a>
+            <button (click)="hendleDelete(product.id)" class="btn btn-danger m-2">Delete</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

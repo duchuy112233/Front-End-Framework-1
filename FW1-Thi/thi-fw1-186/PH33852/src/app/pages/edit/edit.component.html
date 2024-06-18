@@ -1,0 +1,72 @@
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <div class="text-center mt-4 mb-4">
+      <h1 class="display-4">Cập nhật sản phẩm</h1>
+    </div>
+    <!-- Title input -->
+    <div class="form-group">
+      <label>name</label>
+      <input formControlName="name" type="text" class="form-control" />
+      <small
+        *ngIf="addForm.get('name')?.errors?.['required'] && addForm.get('name')?.touched"
+        class="text-danger"
+      >
+        Không được để trống
+      </small>
+      <small
+        *ngIf="addForm.get('name')?.errors?.['minlength'] && addForm.get('name')?.touched"
+        class="text-danger"
+      >
+        khong duoi 3 ky tu
+      </small>
+    </div>
+    <!-- Image input -->
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        formControlName="image"
+        type="text"
+        class="form-control"
+        id="image"
+        placeholder="Image"
+      />
+      <!-- Error message -->
+      <small
+        *ngIf="addForm.get('image')?.errors?.['required'] && addForm.get('image')?.touched"
+        class="text-danger"
+      >
+        Không được để trống
+      </small>
+    </div>
+    <!-- quantity input -->
+    <div class="form-group">
+      <label for="quantity">quantity</label>
+      <input
+        formControlName="quantity"
+        type="number"
+        class="form-control"
+        id="quantity"
+        placeholder="quantity"
+      />
+      <!-- Error message -->
+      <small
+        *ngIf="addForm.get('quantity')?.errors?.['required'] && addForm.get('quantity')?.touched"
+        class="text-danger"
+      >
+        so luong khong được để trống
+      </small>
+      <small
+        *ngIf="addForm.get('quantity')?.errors?.['min'] && addForm.get('quantity')?.touched"
+        class="text-danger"
+      >
+        so luong khong am
+      </small>
+    </div>
+    <!-- Checkbox -->
+    <div class="form-check">
+      <input formControlName="active" type="checkbox" class="form-check-input" />
+      <label class="form-check-label">active</label>
+    </div>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
