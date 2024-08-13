@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail</title>
+    <!-- Bootstrap CSS -->
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4 text-center">Product Detail</h1>
+      @if(product) {
+      <div class="card mb-4">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img [src]="product.image" class="card-img" alt="Product Image" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title">{{ product.title }}</h2>
+              <p class="card-text">{{ product.description }}</p>
+              <div class="countdown-highlight">
+                <countdown [config]="config"></countdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Place a Bid</h3>
+          <form [formGroup]="bidForm" (ngSubmit)="handleSubmit()">
+            <div class="form-group">
+              <label for="price">Bid Amount</label>
+              <input
+                type="number"
+                id="price"
+                formControlName="price"
+                class="form-control"
+                placeholder="Enter your bid"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Bid</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Bid History</h3>
+          <ul class="list-group list-group-flush">
+            @for (bid of product.bids; track bid) {
+            <li class="list-group-item">
+              <strong>{{ bid.user.username }}</strong> -
+              {{ bid.createdAt | date : "dd/MM/yyyy" }}
+            </li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

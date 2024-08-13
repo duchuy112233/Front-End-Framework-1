@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <!-- Bootstrap CSS -->
+  </head>
+  <body>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-custom text-center">
+      <h1 class="display-4">Welcome to MySite!</h1>
+      <p class="lead">Your one-stop solution for all your needs.</p>
+      <hr class="my-4" />
+      <p>homepage works!</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+    <!-- Featured Content -->
+    <div class="container">
+      <div class="row">
+        @for (product of products; track product._id) {
+        <div class="col-md-4">
+          <div class="card card-custom">
+            <a [routerLink]="['/products', product._id]">
+              <img [src]="product.image" class="card-img-top" alt="..."
+            /></a>
+
+            <div class="card-body">
+              <a [routerLink]="['/products', product._id]">
+                <h5 class="card-title">{{ product.title }}</h5></a
+              >
+
+              <p class="card-text">{{ product.description }}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+
+        }
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

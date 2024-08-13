@@ -1,0 +1,21 @@
+.delete-message {
+    position: fixed;
+    top: 20px; /* Điều chỉnh khoảng cách từ trên xuống */
+    right: 20px; /* Điều chỉnh khoảng cách từ phải sang trái */
+    background-color: #d1e9d1; /* Màu nền của thông báo */
+    padding: 20px; /* Khoảng cách padding của thông báo */
+    border: 1px solid #d1e9d1; /* Viền của thông báo */
+    border-radius: 5px; /* Bo tròn viền của thông báo */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho thông báo */
+    z-index: 9999; /* Đảm bảo thông báo hiển thị trên các phần tử khác */
+    max-width: calc(
+      100% - 40px
+    ); /* Giới hạn chiều rộng tối đa để thông báo không vượt ra khỏi màn hình */
+    color: #4caf50; /* Màu chữ của thông báo */
+  }
+  
+  .delete-message p {
+    margin: 0; /* Loại bỏ margin của thẻ p */
+    height: 40px; /* Độ cao của thẻ p */
+    line-height: 40px; /* Canh giữa nội dung trong thẻ p */
+  }
