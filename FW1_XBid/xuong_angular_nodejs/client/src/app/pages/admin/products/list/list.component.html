@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Product List</h2>
+
+  <div class="card">
+    <div class="card-header bg-secondary text-white">
+      Product Info
+      <a routerLink="/admin/products/create" class="btn btn-success float-end"
+        >Create Product</a
+      >
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>TITLE</th>
+              <th>IMAGE</th>
+              <th>PRICE</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+            <tr *ngFor="let product of products; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ product.title }}</td>
+              <td><img [src]="product.image" width="100px" /></td>
+              <td>{{ product.price | number }}</td>
+
+              <td class="">
+                <a
+                  class="btn btn-warning me-2"
+                  [routerLink]="['/products', product._id]"
+                  >View</a
+                >
+                <a
+                  class="btn btn-info m-2 me-2"
+                  [routerLink]="['/admin/products/edit', product._id]"
+                  >Edit</a
+                >
+                <button
+                  class="btn btn-danger"
+                  (click)="handleDeleteProduct(product._id)"
+                >
+                  Delete
+                </button>
+                <a
+                  class="btn m-2 btn-info"
+                  [routerLink]="['/admin/products', product._id, 'bids']"
+                  >Bifs Info</a
+                >
+              </td>
+            </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

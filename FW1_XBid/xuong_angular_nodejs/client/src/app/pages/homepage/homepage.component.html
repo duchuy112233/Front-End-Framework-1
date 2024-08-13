@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <!-- Bootstrap CSS -->
+  </head>
+  <body>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-custom text-center">
+      <h1 class="display-4">Welcome to MySite!</h1>
+      <p class="lead">Your one-stop solution for all your needs.</p>
+      <hr class="my-4" />
+      <p>homepage works!</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+    <!-- Featured Content -->
+    <div class="container">
+      <div class="row">
+        <!-- Hàng đầu tiên -->
+        <div *ngFor="let product of products" class="col-md-4 mb-4">
+          <div class="card card-custom">
+            <a [routerLink]="['/products', product._id]">
+              <img [src]="product.image" class="card-img-top h-30px" alt="..." />
+            </a>
+            <div class="card-body">
+              <a [routerLink]="['/products', product._id]">
+                <h5 class="card-title">{{ product.title }}</h5>
+              </a>
+              <p class="card-text">{{ product.price | number }} VNĐ</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
